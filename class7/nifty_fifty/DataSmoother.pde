@@ -3,24 +3,23 @@ HashMap<Integer, SortedSet<EquityRecord>> niftySymbolListVis = new HashMap<Integ
   class DataSmoother {
     HashMap<Integer, SortedSet<EquityRecord>> smoothenData(int numPoints) {
       
-      keys = new ArrayList<Integer>(niftySymbolList.keySet());
+      sec_keys = new ArrayList<Integer>(niftySymbolList.keySet());
       
-      Collections.sort(keys);
+      Collections.sort(sec_keys);
       
-      for (int i = 0; i < keys.size() - 1; i++) {
+      for (int i = 0; i < sec_keys.size() - 1; i++) {
         
         int j = i + 1;
         
-        SortedSet<EquityRecord> curr_rec = niftySymbolList.get(keys.get(j));
+        SortedSet<EquityRecord> curr_rec = niftySymbolList.get(sec_keys.get(j));
         
-        SortedSet<EquityRecord> prev_rec = niftySymbolList.get(keys.get(i));
+        SortedSet<EquityRecord> prev_rec = niftySymbolList.get(sec_keys.get(i));
         
         for (EquityRecord rec : curr_rec) {
           
           String[] dateArr = rec.getReportDate().split("-");
-  
            int year = Integer.parseInt(dateArr[0]);
-                int month = Integer.parseInt(dateArr[1]);
+           int month = Integer.parseInt(dateArr[1]);
           
           for (EquityRecord p_rec : prev_rec) {
             
@@ -32,12 +31,9 @@ HashMap<Integer, SortedSet<EquityRecord>> niftySymbolListVis = new HashMap<Integ
 
               for (int k = 0; k < numPoints; k++) {
                               int key1 = year * 10000 + 100 * month + k;
-
-                EquityRecord record = new EquityRecord(rec);
-                
-                record.setFreeFloatMarketCap(rec.getFreeFloatMarketCap() + speed * k);
-                println(record.getFreeFloatMarketCap()+"  speed "+ speed + " symbol " + rec);
-                
+                EquityRecord record = new EquityRecord(rec); 
+                record.setFreeFloatMarketCap(p_rec.getFreeFloatMarketCap() + speed * k);
+                //println(record.getFreeFloatMarketCap()+"  speed "+ speed + " symbol " + rec);  
                 if (niftySymbolListVis.get(key1) == null) {
                   s = new TreeSet<EquityRecord>(
                       new Comparator<EquityRecord>() {
