@@ -23,14 +23,11 @@ void draw(){
   Integer [] years = {2009,2010, 2011,2012,2013, 2014, 2015, 2016,2017,2018,2019};
 int yearIndx=0;
 float hMargin= 20;
-
-
 void drawYearWiseAnimate2(){
    background(0,123,99);
 
      int year = years[yearIndx];
           text("Industry Count For Nifty50 in  "+year, width/2 -150, 10);
-
       yearIndx= (yearIndx+1)%(years.length-1);
        Map<String, Integer> indContMap = yearIndustryCountMap.get(year);
        ArrayList<Integer> al = new ArrayList<Integer>(indContMap.values());

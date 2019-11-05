@@ -20,8 +20,7 @@ class DataLoader{
 
 
 void createIndustryList(Table niftyTable){
-  print(niftyTable);
-  
+  print(niftyTable);  
 }
 
 void createSymbolList(Table niftyTable){
