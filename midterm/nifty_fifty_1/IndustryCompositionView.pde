@@ -9,7 +9,7 @@ class IndustryCompositionView extends AbstractNiftyView{
   // Integer [] years= yearIndustryContributionMap.keySet().toArray(new Integer[yearIndustryContributionMap.size()]);
   Integer [] years = {2009,2010, 2011,2012,2013, 2014, 2015, 2016,2017,2018,2019};
  void  settings(){
-   size(1000,800);
+   size(1600,1000);
   }
   
   void setup(){

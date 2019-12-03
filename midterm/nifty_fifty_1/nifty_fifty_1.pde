@@ -1,4 +1,18 @@
-  //<>//
+
+ /**
+ 
+ This Program displays 3 visualizations for Nifty50 index data.
+ 
+ 1) Industry composition Across years. Number of Industry types Present and Number of companies each year for a Industry
+ 2) Total contribution in terms of assets For each industry. This is displayed in form of a heatMap.
+ 3) Ticker composition across years. Which Ticker was part of Index from which period to which period.
+ 
+ Some limitations of the Apps 
+ 
+ 1) closing one window closes all the windows.
+ 2) Positioning of views should be proper. Currently it overlapes each other and we need to drag to see other one in view.
+ 
+ */ //<>//
 float w =0 ;
 float h = 0;
 float x=100;
@@ -29,6 +43,8 @@ void draw_vis(){
   background(122,0,133);
   textSize(16);
   text("Welcome to nifty50 Viz Portal", 30 ,40);
+    text("Click On  following buttons for details", 30 ,60);
+
   fill(0);
      image(logo, 0 ,100);
 
